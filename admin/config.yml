@@ -1,0 +1,59 @@
+backend:
+  name: netlify-cms
+  branch: main
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "blogs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+
+  - name: "services"
+    label: "Services"
+    folder: "services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Description", name: "description", widget: "text" }
+      - { label: "Service Icon", name: "icon", widget: "string" }
+      - { label: "Overview", name: "overview", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Methodologies", name: "methodologies", widget: "list" }
+      - { label: "Expected Outcomes", name: "outcomes", widget: "list" }
+
+  - name: "team"
+    label: "Team Members"
+    folder: "_data"
+    extension: "yml"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+      - { label: "Skills", name: "skills", widget: "list" }
