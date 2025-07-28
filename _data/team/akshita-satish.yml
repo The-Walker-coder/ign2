@@ -1,0 +1,12 @@
+name: "Akshita Satish"
+role: "Information Security Analyst"
+bio: "Akshita specializes in information security assessments, vulnerability management, and compliance frameworks. Her technical expertise ensures robust security postures for our clients."
+photo: "assets/img/team-akshita.jpg"
+linkedin: "https://www.linkedin.com/in/akshita-satish/"
+skills:
+  - "Cybersecurity"
+  - "Vulnerability Assessment"
+  - "Compliance Auditing"
+  - "Security Architecture"
+order: 2
+featured: true

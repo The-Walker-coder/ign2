@@ -1,0 +1,48 @@
+title: "Information Security"
+short_description: "Comprehensive security assessments, ISO 27001 implementation, and cybersecurity consulting."
+icon: "🛡️"
+url: "services/information-security.html"
+meta_description: "Expert information security consulting: risk assessments, ISO 27001 implementation, cyber security, DevSecOps, and training."
+overview: "From ISO 27001 to cloud security—solutions for secure, resilient growth in a digital world."
+description: |
+  Ignasia Consulting delivers end-to-end information security strategies, frameworks, and implementation services tailored to your organization's size, sector, and risk profile. We help you build resilience against threats, meet regulatory demands, and drive a culture of proactive security.
+
+offerings:
+  - "Security Risk Assessments & Gap Analysis"
+  - "ISMS & ISO 27001 Implementation"
+  - "Framework Adoption (NIST CSF, CIS Controls)"
+  - "Policy Formulation & Training"
+  - "DevSecOps & Secure Cloud"
+  - "Security Audits & Incident Response"
+
+methodologies:
+  - step: "Discovery & Scoping"
+    description: "Engage with client leadership; understand business processes, risk appetite, compliance needs."
+  - step: "Threat/Risk Assessment"
+    description: "Conduct asset inventories, threat modeling, and vulnerability scans."
+  - step: "Gap Analysis"
+    description: "Map against ISO 27001, NIST, and regulatory frameworks; identify critical control weaknesses."
+  - step: "Roadmap Development"
+    description: "Prioritize remediation, design custom control sets, and deliver tailored implementation schedule."
+  - step: "Execution & Enablement"
+    description: "Deploy controls, conduct training, shape policies; support incident readiness and testing."
+  - step: "Continuous Monitoring & Review"
+    description: "Define ongoing metrics, dashboards, and regular audit check-ins for sustained maturity."
+
+outcomes:
+  - "ISO 27001/ISMS or NIST readiness, certification support"
+  - "Board-level risk visibility and clear reporting for stakeholders"
+  - "Measurably reduced vulnerabilities and audit findings"
+  - "Enhanced security culture—from the front-line to leadership"
+  - "Regulatory peace of mind (RBI/IRDAI/SEBI/privacy regimes)"
+  - "Process and technology improvements that scale as you grow"
+
+industries:
+  - "Banking and financial services (BFSI)"
+  - "Insurance, fintech, and NBFCs"
+  - "Healthcare, pharma, and digital health"
+  - "Manufacturing, logistics, auto/industrial"
+  - "SaaS, technology, and cloud-centric organizations"
+
+order: 1
+featured: true

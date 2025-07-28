@@ -6,54 +6,231 @@ media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "_data/site.yml"
+        label: "Site Configuration"
+        name: "site"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string", default: "Ignasia Consulting" }
+          - { label: "Site Description", name: "description", widget: "text" }
+          - { label: "Company Email", name: "email", widget: "string" }
+          - { label: "Company Phone", name: "phone", widget: "string" }
+          - { label: "Company Address", name: "address", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - { label: "Website URL", name: "website", widget: "string" }
+
   - name: "pages"
     label: "Pages"
     files:
-      - file: "index.html"
-        label: "Home Page"
-        name: "home"
+      - file: "_data/homepage.yml"
+        label: "Homepage"
+        name: "homepage"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Meta Description", name: "description", widget: "text" }
           - { label: "Hero Title", name: "hero_title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+          - label: "Hero Services"
+            name: "hero_services"
+            widget: "list"
+            fields:
+              - { label: "Service", name: "service", widget: "string" }
+          - label: "Core Services Section"
+            name: "core_services"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - label: "Team Section"
+            name: "team_section"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - label: "CTA Section"
+            name: "cta_section"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Button Text", name: "button_text", widget: "string" }
 
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "blogs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Meta Description", name: "description", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - file: "_data/about.yml"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Mission", name: "mission", widget: "text" }
+          - { label: "What We Do", name: "what_we_do", widget: "text" }
+          - { label: "Our Approach", name: "approach", widget: "text" }
+          - label: "Core Values"
+            name: "values"
+            widget: "list"
+            fields:
+              - { label: "Icon", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
 
-  - name: "services"
-    label: "Services"
-    folder: "services"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Meta Description", name: "description", widget: "text" }
-      - { label: "Service Icon", name: "icon", widget: "string" }
-      - { label: "Overview", name: "overview", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Methodologies", name: "methodologies", widget: "list" }
-      - { label: "Expected Outcomes", name: "outcomes", widget: "list" }
+      - file: "_data/contact.yml"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Contact Description", name: "description", widget: "text" }
+          - label: "Contact Methods"
+            name: "contact_methods"
+            widget: "list"
+            fields:
+              - { label: "Icon", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Link", name: "link", widget: "string", required: false }
 
   - name: "team"
     label: "Team Members"
-    folder: "_data"
-    extension: "yml"
+    folder: "_data/team"
     create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Role", name: "role", widget: "string" }
       - { label: "Bio", name: "bio", widget: "text" }
       - { label: "Photo", name: "photo", widget: "image" }
       - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
-      - { label: "Skills", name: "skills", widget: "list" }
+      - label: "Skills"
+        name: "skills"
+        widget: "list"
+        field: { label: "Skill", name: "skill", widget: "string" }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
+
+  - name: "services"
+    label: "Services"
+    folder: "_data/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Short Description", name: "short_description", widget: "text" }
+      - { label: "Icon", name: "icon", widget: "string", hint: "Emoji or icon class" }
+      - { label: "Page URL", name: "url", widget: "string", hint: "e.g., services/information-security.html" }
+      - { label: "Meta Description", name: "meta_description", widget: "text" }
+      - { label: "Overview", name: "overview", widget: "text" }
+      - { label: "Detailed Description", name: "description", widget: "markdown" }
+      - label: "Key Offerings"
+        name: "offerings"
+        widget: "list"
+        field: { label: "Offering", name: "offering", widget: "string" }
+      - label: "Methodologies"
+        name: "methodologies"
+        widget: "list"
+        fields:
+          - { label: "Step", name: "step", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - label: "Expected Outcomes"
+        name: "outcomes"
+        widget: "list"
+        field: { label: "Outcome", name: "outcome", widget: "string" }
+      - label: "Industries Served"
+        name: "industries"
+        widget: "list"
+        field: { label: "Industry", name: "industry", widget: "string" }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_data/blogs"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Ignasia Consulting Team" }
+      - { label: "Meta Description", name: "meta_description", widget: "text" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Page URL", name: "url", widget: "string", hint: "e.g., blogs/ai-cybersecurity-2025.html" }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+
+  - name: "navigation"
+    label: "Navigation"
+    files:
+      - file: "_data/navigation.yml"
+        label: "Main Navigation"
+        name: "navigation"
+        fields:
+          - label: "Navigation Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Order", name: "order", widget: "number" }
+              - label: "Dropdown Items"
+                name: "dropdown"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "_data/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Testimonial", name: "testimonial", widget: "text" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+      - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+
+  - name: "case_studies"
+    label: "Case Studies"
+    folder: "_data/case_studies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Industry", name: "industry", widget: "string" }
+      - { label: "Challenge", name: "challenge", widget: "text" }
+      - { label: "Solution", name: "solution", widget: "text" }
+      - { label: "Results", name: "results", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - label: "Services Used"
+        name: "services"
+        widget: "list"
+        field: { label: "Service", name: "service", widget: "string" }
+      - label: "Technologies"
+        name: "technologies"
+        widget: "list"
+        field: { label: "Technology", name: "technology", widget: "string" }
+      - { label: "Project Duration", name: "duration", widget: "string" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+
+  - name: "faqs"
+    label: "FAQs"
+    folder: "_data/faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "text" }
+      - { label: "Category", name: "category", widget: "select", options: ["General", "Services", "Pricing", "Process", "Technical"] }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }

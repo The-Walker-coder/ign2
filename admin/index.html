@@ -4,10 +4,106 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Ignasia Consulting</title>
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+      color: #ffffff;
+    }
+    
+    .cms-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    
+    .cms-loading h1 {
+      color: #c0c0c0;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    
+    .cms-loading .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(192, 192, 192, 0.3);
+      border-top: 3px solid #c0c0c0;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
+  <div class="cms-loading">
+    <h1>Ignasia Consulting CMS</h1>
+    <div class="spinner"></div>
+    <p style="margin-top: 1rem; color: #888;">Loading content management system...</p>
+  </div>
+  
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  
+  <script>
+    // Custom styling for Netlify CMS
+    CMS.registerPreviewStyle('/assets/css/style.css');
+    
+    // Hide loading screen once CMS loads
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        const loading = document.querySelector('.cms-loading');
+        if (loading) loading.style.display = 'none';
+      }, 2000);
+    });
+    
+    // Custom preview templates
+    CMS.registerPreviewTemplate('team', ({ entry, widgetFor, widgetsFor }) => {
+      const name = entry.getIn(['data', 'name']);
+      const role = entry.getIn(['data', 'role']);
+      const bio = entry.getIn(['data', 'bio']);
+      const photo = entry.getIn(['data', 'photo']);
+      const linkedin = entry.getIn(['data', 'linkedin']);
+      const skills = entry.getIn(['data', 'skills']);
+      
+      return `
+        <div style="background: #1a1a1a; padding: 2rem; border-radius: 15px; color: white; max-width: 400px;">
+          <div style="text-align: center;">
+            <img src="${photo}" alt="${name}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #c0c0c0;">
+            <h3 style="color: #ffffff; margin-bottom: 0.5rem;">${name}</h3>
+            <p style="color: #c0c0c0; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem;">${role}</p>
+            <p style="color: #888; line-height: 1.6; margin-bottom: 1.5rem;">${bio}</p>
+            ${skills ? skills.map(skill => `<span style="background: rgba(192,192,192,0.1); color: #c0c0c0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin: 0.2rem; display: inline-block;">${skill}</span>`).join('') : ''}
+            <div style="margin-top: 1rem;">
+              <a href="${linkedin}" target="_blank" style="background: linear-gradient(135deg, #c0c0c0 0%, #ffffff 100%); color: #0a0a0a; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">LinkedIn Profile</a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    CMS.registerPreviewTemplate('services', ({ entry }) => {
+      const title = entry.getIn(['data', 'title']);
+      const shortDescription = entry.getIn(['data', 'short_description']);
+      const icon = entry.getIn(['data', 'icon']);
+      
+      return `
+        <div style="background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); padding: 2.5rem; border-radius: 20px; color: white; text-align: center; max-width: 350px; border: 1px solid #333;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">${icon}</div>
+          <h3 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 1.4rem;">${title}</h3>
+          <p style="color: #888; line-height: 1.7; margin-bottom: 2rem;">${shortDescription}</p>
+          <button style="background: transparent; border: 2px solid #c0c0c0; color: #c0c0c0; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer;">Learn More</button>
+        </div>
+      `;
+    });
+  </script>
 </body>
 </html>

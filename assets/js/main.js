@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all animations and effects
+    initGlobalParticles();
     initScrollAnimations();
-    initParticleEffect();
     initTypingEffect();
     initGlitchEffect();
     initSmoothScrolling();
@@ -11,6 +11,132 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormEnhancements();
     initServiceCardEffects();
     initTeamCardEffects();
+    
+    // Global particle effect for entire website
+    function initGlobalParticles() {
+        // Create canvas element
+        const canvas = document.createElement('canvas');
+        canvas.id = 'global-particles';
+        document.body.appendChild(canvas);
+        
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 80;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8,
+                size: Math.random() * 3 + 1,
+                opacity: Math.random() * 0.6 + 0.2,
+                pulse: Math.random() * 0.02 + 0.01
+            };
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(createParticle());
+            }
+        }
+
+        function updateParticles() {
+            particles.forEach(particle => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // Pulse effect
+                particle.opacity += particle.pulse;
+                if (particle.opacity > 0.8 || particle.opacity < 0.1) {
+                    particle.pulse *= -1;
+                }
+
+                // Wrap around edges
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw particles
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(192, 192, 192, ${particle.opacity})`;
+                ctx.fill();
+                
+                // Add glow effect
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = `rgba(192, 192, 192, ${particle.opacity * 0.5})`;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            });
+
+            // Draw connections
+            particles.forEach((particle, i) => {
+                particles.slice(i + 1).forEach(otherParticle => {
+                    const dx = particle.x - otherParticle.x;
+                    const dy = particle.y - otherParticle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(otherParticle.x, otherParticle.y);
+                        const opacity = (1 - distance / 120) * 0.3;
+                        ctx.strokeStyle = `rgba(192, 192, 192, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                });
+            });
+        }
+
+        function animate() {
+            updateParticles();
+            drawParticles();
+            requestAnimationFrame(animate);
+        }
+
+        // Mouse interaction
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Attract particles to mouse
+            particles.forEach(particle => {
+                const dx = mouseX - particle.x;
+                const dy = mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    particle.vx += dx * 0.0001;
+                    particle.vy += dy * 0.0001;
+                }
+            });
+        });
+
+        resizeCanvas();
+        initParticles();
+        animate();
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+    }
     
     // Smooth scrolling for navigation links
     function initSmoothScrolling() {
@@ -90,100 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Particle effect for hero section
-    function initParticleEffect() {
-        const heroSection = document.querySelector('.hero-section');
-        if (!heroSection) return;
-
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.style.position = 'absolute';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.pointerEvents = 'none';
-        canvas.style.zIndex = '1';
-        heroSection.appendChild(canvas);
-
-        let particles = [];
-        const particleCount = 50;
-
-        function resizeCanvas() {
-            canvas.width = heroSection.offsetWidth;
-            canvas.height = heroSection.offsetHeight;
-        }
-
-        function createParticle() {
-            return {
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 2 + 1,
-                opacity: Math.random() * 0.5 + 0.2
-            };
-        }
-
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(createParticle());
-            }
-        }
-
-        function updateParticles() {
-            particles.forEach(particle => {
-                particle.x += particle.vx;
-                particle.y += particle.vy;
-
-                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-            });
-        }
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(192, 192, 192, ${particle.opacity})`;
-                ctx.fill();
-            });
-
-            // Draw connections
-            particles.forEach((particle, i) => {
-                particles.slice(i + 1).forEach(otherParticle => {
-                    const dx = particle.x - otherParticle.x;
-                    const dy = particle.y - otherParticle.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 100) {
-                        ctx.beginPath();
-                        ctx.moveTo(particle.x, particle.y);
-                        ctx.lineTo(otherParticle.x, otherParticle.y);
-                        ctx.strokeStyle = `rgba(192, 192, 192, ${0.1 * (1 - distance / 100)})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                });
-            });
-        }
-
-        function animate() {
-            updateParticles();
-            drawParticles();
-            requestAnimationFrame(animate);
-        }
-
-        resizeCanvas();
-        initParticles();
-        animate();
-
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            initParticles();
-        });
-    }
 
     // Typing effect for hero title
     function initTypingEffect() {

@@ -31,10 +31,23 @@ body {
   color: var(--text-primary);
   background: var(--primary-black);
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Global Particle Canvas */
+#global-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
 }
 
 /* Futuristic Background Pattern */
-body::before {
+body::after {
   content: '';
   position: fixed;
   top: 0;
@@ -46,7 +59,22 @@ body::before {
     radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 80%, rgba(192, 192, 192, 0.1) 0%, transparent 50%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
+}
+
+/* Ensure content is above particles */
+.navbar,
+.hero-section,
+.services-overview,
+.team-section,
+.cta-section,
+.footer,
+.page-header,
+.container,
+.blog-article,
+main {
+  position: relative;
+  z-index: 2;
 }
 
 /* Navigation */
@@ -56,28 +84,29 @@ body::before {
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--shadow-secondary);
   transition: all 0.3s ease;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--neon-silver) !important;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
+.navbar-brand img {
+  height: 50px !important;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+  margin-right: 1.5rem;
+}
+
 .navbar-brand:hover {
   color: var(--silver-primary) !important;
   text-shadow: var(--glow-effect);
-}
-
-.navbar-brand img {
-  filter: brightness(0) invert(1);
-  transition: all 0.3s ease;
-  margin-right: 1rem;
 }
 
 .navbar-brand:hover img {
@@ -144,6 +173,7 @@ body::before {
       rgba(192, 192, 192, 0.05) 100px
     );
   animation: scan 8s linear infinite;
+  z-index: 1;
 }
 
 @keyframes scan {
@@ -162,6 +192,7 @@ body::before {
   background-clip: text;
   text-shadow: none;
   position: relative;
+  z-index: 3;
 }
 
 .hero-title::after {
@@ -181,12 +212,16 @@ body::before {
   color: var(--text-secondary);
   font-weight: 300;
   line-height: 1.6;
+  z-index: 3;
+  position: relative;
 }
 
 .hero-buttons {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  z-index: 3;
+  position: relative;
 }
 
 .hero-card {
@@ -198,6 +233,7 @@ body::before {
   margin-top: 3rem;
   position: relative;
   overflow: hidden;
+  z-index: 3;
 }
 
 .hero-card::before {
@@ -247,6 +283,175 @@ body::before {
   border-bottom: none;
 }
 
+/* Page Header Improvements */
+.page-header {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  padding: 200px 0 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(192, 192, 192, 0.1) 50%, transparent 70%);
+  animation: scan 6s linear infinite;
+  z-index: 1;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header .lead {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Content Spacing Improvements */
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.py-5 {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+/* Blog and Service Page Improvements */
+.blog-article,
+.service-detail {
+  padding: 4rem 0;
+}
+
+.blog-article .container,
+.service-detail .container {
+  max-width: 1200px;
+}
+
+.blog-article h1,
+.service-detail h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.blog-article h2,
+.service-detail h2 {
+  font-size: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  color: var(--neon-silver);
+}
+
+.blog-article h3,
+.service-detail h3 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--silver-primary);
+}
+
+.blog-article h4,
+.service-detail h4 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--silver-primary);
+}
+
+.blog-article p,
+.service-detail p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.blog-article ul,
+.blog-article ol,
+.service-detail ul,
+.service-detail ol {
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+}
+
+.blog-article li,
+.service-detail li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.blog-article .alert,
+.service-detail .alert {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-radius: 15px;
+  background: var(--gradient-secondary);
+  border: 1px solid var(--silver-primary);
+}
+
+.blog-article blockquote,
+.service-detail blockquote {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-left: 4px solid var(--silver-primary);
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 0 15px 15px 0;
+}
+
+.blog-article table,
+.service-detail table {
+  margin: 3rem 0;
+  background: var(--gradient-secondary);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.blog-article .table th,
+.service-detail .table th {
+  background: var(--silver-primary);
+  color: var(--primary-black);
+  font-weight: 600;
+  padding: 1.5rem;
+}
+
+.blog-article .table td,
+.service-detail .table td {
+  padding: 1.5rem;
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
 /* Buttons */
 .btn {
   border-radius: 50px;
@@ -259,6 +464,7 @@ body::before {
   position: relative;
   overflow: hidden;
   font-size: 0.9rem;
+  z-index: 3;
 }
 
 .btn::before {
@@ -539,44 +745,6 @@ body::before {
   margin-bottom: 2rem;
 }
 
-/* Page Header */
-.page-header {
-  background: var(--gradient-primary);
-  color: var(--text-primary);
-  padding: 150px 0 80px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.page-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(45deg, transparent 30%, rgba(192, 192, 192, 0.1) 50%, transparent 70%);
-  animation: scan 6s linear infinite;
-}
-
-.page-header h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.page-header .lead {
-  font-size: 1.3rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-}
-
 /* Blog Styles */
 .blog-card {
   background: var(--gradient-secondary);
@@ -822,7 +990,11 @@ body::before {
   }
   
   .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  }
+  
+  .page-header {
+    padding: 150px 0 80px;
   }
   
   .service-card,
@@ -833,6 +1005,20 @@ body::before {
   .hero-card {
     padding: 2rem;
   }
+  
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+  
+  .navbar-brand img {
+    height: 40px !important;
+    margin-right: 1rem;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -841,7 +1027,7 @@ body::before {
   }
   
   .page-header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
   .btn {
@@ -853,6 +1039,14 @@ body::before {
   .team-card,
   .contact-card {
     padding: 2rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand img {
+    height: 35px !important;
   }
 }
 

@@ -1,0 +1,20 @@
+hero_title: "Audit, Consulting and Business Process Optimisation"
+hero_subtitle: "Transform your organization with expert governance, risk management, compliance, and cybersecurity solutions."
+hero_services:
+  - "Governance, Risk & Compliance"
+  - "Information Security"
+  - "Digital Forensics"
+  - "Business Process Optimization"
+
+core_services:
+  title: "Our Core Services"
+  subtitle: "Comprehensive solutions for modern business challenges"
+
+team_section:
+  title: "Meet Our Experts"
+  subtitle: "Industry professionals with deep expertise"
+
+cta_section:
+  title: "Ready to Transform Your Business?"
+  subtitle: "Contact us today to discuss how we can help optimize your governance, risk, and compliance processes."
+  button_text: "Get In Touch"

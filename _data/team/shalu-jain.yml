@@ -1,0 +1,12 @@
+name: "Shalu Jain"
+role: "Information Security Analyst"
+bio: "Shalu focuses on digital forensics, incident response, and data privacy compliance. Her analytical skills and attention to detail drive successful security investigations and compliance initiatives."
+photo: "assets/img/team-shalu.jpg"
+linkedin: "https://www.linkedin.com/in/shalujain18/"
+skills:
+  - "Digital Forensics"
+  - "Incident Response"
+  - "Data Privacy"
+  - "GDPR/DPDP Compliance"
+order: 3
+featured: true
