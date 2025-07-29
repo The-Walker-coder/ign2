@@ -42,7 +42,7 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: -1;
   opacity: 0.6;
 }
 
@@ -91,17 +91,17 @@ main {
   display: flex;
   align-items: center;
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: var(--neon-silver) !important;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .navbar-brand img {
-  height: 50px !important;
+  height: 60px !important;
   filter: brightness(0) invert(1);
   transition: all 0.3s ease;
-  margin-right: 1.5rem;
+  margin-right: 2rem;
 }
 
 .navbar-brand:hover {
@@ -287,7 +287,7 @@ main {
 .page-header {
   background: var(--gradient-primary);
   color: var(--text-primary);
-  padding: 200px 0 120px;
+  padding: 180px 0 100px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -332,17 +332,17 @@ main {
 
 /* Content Spacing Improvements */
 .container {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 section {
-  padding: 6rem 0;
+  padding: 8rem 0;
 }
 
 .py-5 {
-  padding-top: 6rem !important;
-  padding-bottom: 6rem !important;
+  padding-top: 8rem !important;
+  padding-bottom: 8rem !important;
 }
 
 /* Blog and Service Page Improvements */
@@ -358,40 +358,40 @@ section {
 
 .blog-article h1,
 .service-detail h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .blog-article h2,
 .service-detail h2 {
-  font-size: 2.5rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   color: var(--neon-silver);
 }
 
 .blog-article h3,
 .service-detail h3 {
-  font-size: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2.5rem;
   color: var(--silver-primary);
 }
 
 .blog-article h4,
 .service-detail h4 {
-  font-size: 1.5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
   color: var(--silver-primary);
 }
 
 .blog-article p,
 .service-detail p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  line-height: 2;
+  margin-bottom: 3rem;
   color: var(--text-secondary);
 }
 
@@ -399,15 +399,15 @@ section {
 .blog-article ol,
 .service-detail ul,
 .service-detail ol {
-  margin-bottom: 2.5rem;
-  padding-left: 2rem;
+  margin-bottom: 3.5rem;
+  padding-left: 3rem;
 }
 
 .blog-article li,
 .service-detail li {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
   color: var(--text-secondary);
 }
 
@@ -609,11 +609,20 @@ section {
   position: relative;
 }
 
+.team-founder {
+  margin-bottom: 4rem;
+}
+
+.team-founder .team-card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .team-card {
   background: var(--gradient-secondary);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  padding: 2.5rem;
+  padding: 3rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -675,8 +684,25 @@ section {
 
 .team-bio {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+.team-certifications {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.certification-badge {
+  display: inline-block;
+  background: rgba(192, 192, 192, 0.1);
+  color: var(--silver-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 0.3rem;
+  border: 1px solid rgba(192, 192, 192, 0.3);
+  font-weight: 600;
 }
 
 .skill-tag {
@@ -743,6 +769,62 @@ section {
   color: var(--text-secondary);
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+
+/* Social Impact Section */
+.social-impact-section {
+  background: var(--gradient-secondary);
+  position: relative;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.social-impact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-accent);
+}
+
+.social-impact-card {
+  background: var(--gradient-primary);
+  border: 1px solid var(--silver-primary);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-impact-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(192, 192, 192, 0.1), transparent);
+  animation: rotate 10s linear infinite;
+  opacity: 0.5;
+}
+
+.social-impact-card h3 {
+  color: var(--neon-silver);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.social-impact-card p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
 /* Blog Styles */
@@ -990,11 +1072,11 @@ section {
   }
   
   .page-header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
   .page-header {
-    padding: 150px 0 80px;
+    padding: 140px 0 70px;
   }
   
   .service-card,
@@ -1007,12 +1089,12 @@ section {
   }
   
   .navbar-brand {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   
   .navbar-brand img {
-    height: 40px !important;
-    margin-right: 1rem;
+    height: 45px !important;
+    margin-right: 1.5rem;
   }
   
   .container {
@@ -1027,7 +1109,7 @@ section {
   }
   
   .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .btn {
@@ -1042,11 +1124,11 @@ section {
   }
   
   .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   .navbar-brand img {
-    height: 35px !important;
+    height: 40px !important;
   }
 }
 

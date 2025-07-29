@@ -10,9 +10,10 @@ core_services:
   title: "Our Core Services"
   subtitle: "Comprehensive solutions for modern business challenges"
 
-team_section:
-  title: "Meet Our Experts"
-  subtitle: "Industry professionals with deep expertise"
+social_impact:
+  title: "Committed to Social Impact"
+  subtitle: "Dedicated to the betterment of human society through secure digital transformation"
+  description: "We offer preferential pricing up to 40% off for non-profits, NGOs, educational institutions, and organizations working for social good."
 
 cta_section:
   title: "Ready to Transform Your Business?"

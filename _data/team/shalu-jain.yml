@@ -1,8 +1,12 @@
 name: "Shalu Jain"
 role: "Information Security Analyst"
-bio: "Shalu focuses on digital forensics, incident response, and data privacy compliance. Her analytical skills and attention to detail drive successful security investigations and compliance initiatives."
+bio: "Shalu is an expert in digital forensics and incident response with specialized knowledge in data privacy compliance. Her analytical approach and attention to detail make her invaluable for complex security investigations and GDPR/DPDP compliance projects."
 photo: "assets/img/team-shalu.jpg"
 linkedin: "https://www.linkedin.com/in/shalujain18/"
+certifications:
+  - "GCIH"
+  - "GDPR Practitioner"
+  - "CHFI"
 skills:
   - "Digital Forensics"
   - "Incident Response"

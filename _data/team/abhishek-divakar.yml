@@ -1,12 +1,16 @@
 name: "Abhishek Divakar"
 role: "Founder & Director"
-bio: "Abhishek brings extensive experience in governance, risk management, and cybersecurity. As the founder, he leads strategic initiatives and ensures the highest standards of service delivery across all client engagements."
+bio: "Abhishek is a seasoned cybersecurity and GRC professional with over 8 years of experience in information security, risk management, and compliance. He holds multiple industry certifications and has successfully led digital transformation initiatives for Fortune 500 companies. His expertise spans across ISO 27001 implementation, GDPR compliance, and enterprise risk management frameworks."
 photo: "assets/img/team-abhishek.jpg"
 linkedin: "https://www.linkedin.com/in/abhishekdivakar/"
+certifications:
+  - "CISSP"
+  - "CISA"
+  - "ISO 27001 LA"
+  - "GDPR Practitioner"
 skills:
   - "GRC Strategy"
   - "Risk Management"
   - "ISO 27001"
   - "Business Consulting"
 order: 1
-featured: true

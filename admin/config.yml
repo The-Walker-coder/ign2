@@ -41,12 +41,13 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - label: "Team Section"
-            name: "team_section"
+          - label: "Social Impact Section"
+            name: "social_impact"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
           - label: "CTA Section"
             name: "cta_section"
             widget: "object"
@@ -93,24 +94,31 @@ collections:
     folder: "_data/team"
     create: true
     slug: "{{slug}}"
+    sortable_fields: ['order', 'name']
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Role", name: "role", widget: "string" }
       - { label: "Bio", name: "bio", widget: "text" }
       - { label: "Photo", name: "photo", widget: "image" }
       - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+      - label: "Certifications"
+        name: "certifications"
+        widget: "list"
+        field: { label: "Certification", name: "certification", widget: "string" }
       - label: "Skills"
         name: "skills"
         widget: "list"
         field: { label: "Skill", name: "skill", widget: "string" }
       - { label: "Order", name: "order", widget: "number", default: 1 }
       - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
+      - { label: "Is Founder", name: "is_founder", widget: "boolean", default: false }
 
   - name: "services"
     label: "Services"
     folder: "_data/services"
     create: true
     slug: "{{slug}}"
+    sortable_fields: ['order', 'title']
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Short Description", name: "short_description", widget: "text" }
@@ -145,6 +153,7 @@ collections:
     folder: "_data/blogs"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ['date', 'title', 'order']
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }

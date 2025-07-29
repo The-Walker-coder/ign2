@@ -1,8 +1,12 @@
 name: "Dolly Kumar"
 role: "Human Resources & Outreach Manager"
-bio: "Dolly leads our human resources initiatives and outreach programs, ensuring we attract top talent and maintain strong relationships with our professional network and community partners."
+bio: "Dolly is a seasoned HR professional with expertise in talent acquisition, organizational development, and community engagement. She leads our social impact initiatives and ensures we maintain strong relationships with NGOs and social organizations worldwide."
 photo: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400"
 linkedin: "https://www.linkedin.com/in/kdolly/"
+certifications:
+  - "SHRM-CP"
+  - "PHR"
+  - "CSR Certified"
 skills:
   - "Human Resources"
   - "Talent Acquisition"
