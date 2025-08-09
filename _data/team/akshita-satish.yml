@@ -1,16 +1,19 @@
 name: "Akshita Satish"
-role: "Information Security Analyst"
-bio: "Akshita is a skilled cybersecurity professional specializing in vulnerability assessments, security architecture, and compliance auditing. With expertise in penetration testing and security frameworks, she ensures robust security implementations for clients across various industries."
+role: "Information Security Analyst & ISO 27001 Specialist"
+bio: "Akshita represents the next generation of cybersecurity professionals, combining rigorous technical training with creative problem-solving perspectives from her unique multi-domain background. Her fresh approach to traditional security challenges brings innovative solutions to complex GRC requirements."
 photo: "assets/img/team-akshita.jpg"
 linkedin: "https://www.linkedin.com/in/akshita-satish/"
 certifications:
-  - "CEH"
-  - "CISSP Associate"
-  - "Security+"
+  - "ISO 27001:2022 Lead Auditor"
+  - "Certified in Cybersecurity (CC)"
 skills:
-  - "Cybersecurity"
-  - "Vulnerability Assessment"
-  - "Compliance Auditing"
-  - "Security Architecture"
-order: 2
+  - "Information Security Management Systems"
+  - "ISO 27001 Implementation"
+  - "Risk Assessment"
+  - "Compliance Management"
+  - "Security Policy Development"
+  - "Creative Problem-Solving"
+education: "BBA Communication and Media Studies (Whistling Woods International)"
+motto: "Security should be intuitive and accessible — when we make it understandable, we make it stronger."
+order: 3
 featured: true

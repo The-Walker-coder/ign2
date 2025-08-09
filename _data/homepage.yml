@@ -1,21 +1,22 @@
-hero_title: "Audit, Consulting and Business Process Optimisation"
-hero_subtitle: "Transform your organization with expert governance, risk management, compliance, and cybersecurity solutions."
+hero_title: "Audit, Consulting & Business Process Optimisation"
+hero_subtitle: "Ignasia Consulting is your global partner in information security, risk management, and organisational transformation. We empower ambitious organisations to navigate uncertainty, defend against cyber threats, and unlock lasting growth—backed by industry-leading expertise and a passion for making the world a better place."
 hero_services:
-  - "Governance, Risk & Compliance"
-  - "Information Security"
-  - "Digital Forensics"
-  - "Business Process Optimization"
+  - "Global Experts: Real-world, hands-on experience in cybersecurity, GRC, audit, and operational excellence"
+  - "Impact-Oriented: We deliver measurable business value and strategic resilience"
+  - "Tailored Solutions: Every engagement designed around your specific needs, sector, and growth stage"
+  - "Trusted Worldwide: Serving clients from high-growth startups to established enterprises and mission-driven NGOs"
+  - "Worldwide Acceptance: Our certified professionals are trusted globally by government bodies like RBI/IRDAI/SEBI/SEC/FTC"
 
 core_services:
   title: "Our Core Services"
   subtitle: "Comprehensive solutions for modern business challenges"
 
 social_impact:
-  title: "Committed to Social Impact"
-  subtitle: "Dedicated to the betterment of human society through secure digital transformation"
-  description: "We offer preferential pricing up to 40% off for non-profits, NGOs, educational institutions, and organizations working for social good."
+  title: "Our Commitment to Social Good"
+  subtitle: "We exist to create meaningful change — within the organisations and across the society"
+  description: "At Ignasia, we know prosperity means nothing unless shared. That's why we champion causes beyond profit: supporting NGOs, nonprofits, and social innovators with preferential pricing and dedicated support. If your work improves lives or communities, you deserve a partner who believes in your mission as much as you do. Let's drive change together—smartly, responsibly, ethically."
 
 cta_section:
-  title: "Ready to Transform Your Business?"
-  subtitle: "Contact us today to discuss how we can help optimize your governance, risk, and compliance processes."
-  button_text: "Get In Touch"
+  title: "Ready to raise your security, compliance, and impact to new levels?"
+  subtitle: "Contact us for a confidential consultation and discover how we can help transform your organisation."
+  button_text: "Contact Us"

@@ -1,16 +1,20 @@
 name: "Shalu Jain"
-role: "Information Security Analyst"
-bio: "Shalu is an expert in digital forensics and incident response with specialized knowledge in data privacy compliance. Her analytical approach and attention to detail make her invaluable for complex security investigations and GDPR/DPDP compliance projects."
+role: "Information Security Analyst & RSA Archer Specialist"
+bio: "Shalu brings over 10 years of enterprise security excellence and GRC platform mastery. Her expertise in RSA Archer development, combined with comprehensive security management experience at Sony and Wipro, makes her instrumental in delivering automated, scalable security solutions."
 photo: "assets/img/team-shalu.jpg"
 linkedin: "https://www.linkedin.com/in/shalujain18/"
 certifications:
-  - "GCIH"
-  - "GDPR Practitioner"
-  - "CHFI"
+  - "CISM"
+  - "CompTIA Security+"
+  - "Certified in Cybersecurity (CC)"
+  - "ISO 27001 Lead Auditor"
 skills:
-  - "Digital Forensics"
+  - "RSA Archer Development"
+  - "Enterprise Security Architecture"
   - "Incident Response"
-  - "Data Privacy"
-  - "GDPR/DPDP Compliance"
-order: 3
+  - "GRC Process Automation"
+  - "Vulnerability Assessment"
+education: "M.Tech - Information Technology (VIT), BSc Electronics (Delhi University)"
+motto: "Complex compliance challenges deserve elegant, automated solutions that empower teams to focus on strategic security outcomes."
+order: 2
 featured: true

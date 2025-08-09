@@ -1057,6 +1057,94 @@ section {
   line-height: 1.6;
 }
 
+/* Service Section Styles */
+.service-section {
+  margin-bottom: 4rem;
+}
+
+.service-section .service-card {
+  background: var(--gradient-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-section .service-card h2 {
+  color: var(--neon-silver);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.service-section .service-card h4 {
+  color: var(--silver-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.service-section .service-card ul {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.service-section .service-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* Social Impact Info Styles */
+.social-impact-info {
+  background: var(--gradient-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.social-impact-info h4 {
+  color: var(--neon-silver);
+  margin-bottom: 1rem;
+}
+
+.social-impact-info p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Team Stats and Achievements */
+.team-stats {
+  background: var(--gradient-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.team-stats h4.text-primary {
+  color: var(--silver-primary) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.team-achievements {
+  margin: 2rem 0;
+}
+
+.team-achievements ul {
+  text-align: left;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.team-achievements li {
+  margin-bottom: 0.5rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-title {
