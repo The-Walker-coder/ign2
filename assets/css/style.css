@@ -99,7 +99,6 @@ main {
 
 .navbar-brand img {
   height: 60px !important;
-  filter: brightness(0) invert(1);
   transition: all 0.3s ease;
   margin-right: 2rem;
 }
@@ -110,7 +109,7 @@ main {
 }
 
 .navbar-brand:hover img {
-  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .nav-link {
