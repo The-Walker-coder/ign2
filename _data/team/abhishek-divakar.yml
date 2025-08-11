@@ -1,6 +1,6 @@
 name: "Abhishek Divakar"
 role: "Founder & Director"
-bio: "Abhishek is the visionary leader behind IGNASIA Consulting, bringing over 12 years of expertise in information security, risk management, and GRC advisory. His journey spans prestigious organisations including PwC India and Wipro's award-winning audit function, where he pioneered innovative security solutions and led enterprise-wide cybersecurity initiatives."
+bio: "Abhishek is the visionary leader behind ignasia Consulting, bringing over 12 years of expertise in information security, risk management, and GRC advisory. His journey spans prestigious organisations including PwC India and Wipro's award-winning Risk-Driven function, where he pioneered innovative security solutions and led enterprise-wide cybersecurity initiatives."
 photo: "assets/img/team-abhishek.jpg"
 linkedin: "https://www.linkedin.com/in/abhishekdivakar/"
 certifications:
@@ -18,7 +18,6 @@ skills:
   - "Digital Forensics"
   - "Business Process Optimisation"
   - "Creative Problem-Solving"
-education: "MS in Cyber Law and Information Security, B.Tech Computer Science & Engineering"
 motto: "Security isn't just about protecting data—it's about enabling organisations to confidently pursue their mission unburdened by fear and doubt."
 order: 1
 featured: true

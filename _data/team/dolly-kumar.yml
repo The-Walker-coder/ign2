@@ -1,6 +1,6 @@
 name: "Dolly Kumar"
 role: "Client Relations & Operations Manager"
-bio: "Dolly drives operational excellence and client success at IGNASIA, bringing entrepreneurial leadership and proven business development expertise. Her experience spans business operations, project management, and strategic growth across multiple industries, with a deep commitment to social impact initiatives."
+bio: "Dolly drives operational excellence and client success at ignasia, bringing entrepreneurial leadership and proven business development expertise. Her experience spans business operations, project management, and strategic growth across multiple industries, with a deep commitment to social impact initiatives."
 photo: "assets/img/team-dolly.jpg"
 linkedin: "https://www.linkedin.com/in/kdolly/"
 certifications: []
@@ -15,9 +15,6 @@ skills:
 achievements:
   - "Founder of Eternity Landscapes (sustainable landscape solutions)"
   - "₹1 crore+ monthly revenue generation at Newton School"
-  - "98% on-time delivery rate across 100+ international projects"
-  - "25% improvement in customer retention through strategic frameworks"
-education: "B.Com Finance and Human Resources (Mount Carmel College, Bengaluru)"
 motto: "Success is measured not just in business outcomes, but in the positive impact we create for our clients and communities."
 order: 4
 featured: true

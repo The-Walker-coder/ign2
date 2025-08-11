@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager - Ignasia Consulting</title>
+  <title>Content Manager - ignasia Consulting</title>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Work Sans', Helvetica, sans-serif;
       background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
       color: #ffffff;
     }
@@ -22,7 +22,7 @@
     }
     
     .cms-loading h1 {
-      color: #c0c0c0;
+      color: #A9A9A9;
       margin-bottom: 2rem;
       font-size: 2.5rem;
       font-weight: 700;
@@ -31,8 +31,8 @@
     .cms-loading .spinner {
       width: 50px;
       height: 50px;
-      border: 3px solid rgba(192, 192, 192, 0.3);
-      border-top: 3px solid #c0c0c0;
+      border: 3px solid rgba(169, 169, 169, 0.3);
+      border-top: 3px solid #A9A9A9;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
@@ -45,9 +45,9 @@
 </head>
 <body>
   <div class="cms-loading">
-    <h1>Ignasia Consulting CMS</h1>
+    <h1>ignasia Consulting CMS</h1>
     <div class="spinner"></div>
-    <p style="margin-top: 1rem; color: #888;">Loading content management system...</p>
+    <p style="margin-top: 1rem; color: #808080;">Loading content management system...</p>
   </div>
   
   <!-- Include the script that builds the page and powers Netlify CMS -->
@@ -77,13 +77,13 @@
       return `
         <div style="background: #1a1a1a; padding: 2rem; border-radius: 15px; color: white; max-width: 400px;">
           <div style="text-align: center;">
-            <img src="${photo}" alt="${name}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #c0c0c0;">
+            <img src="${photo}" alt="${name}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #A9A9A9;">
             <h3 style="color: #ffffff; margin-bottom: 0.5rem;">${name}</h3>
-            <p style="color: #c0c0c0; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem;">${role}</p>
-            <p style="color: #888; line-height: 1.6; margin-bottom: 1.5rem;">${bio}</p>
-            ${skills ? skills.map(skill => `<span style="background: rgba(192,192,192,0.1); color: #c0c0c0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin: 0.2rem; display: inline-block;">${skill}</span>`).join('') : ''}
+            <p style="color: #A9A9A9; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem;">${role}</p>
+            <p style="color: #808080; line-height: 1.6; margin-bottom: 1.5rem;">${bio}</p>
+            ${skills ? skills.map(skill => `<span style="background: rgba(169,169,169,0.1); color: #A9A9A9; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin: 0.2rem; display: inline-block;">${skill}</span>`).join('') : ''}
             <div style="margin-top: 1rem;">
-              <a href="${linkedin}" target="_blank" style="background: linear-gradient(135deg, #c0c0c0 0%, #ffffff 100%); color: #0a0a0a; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">LinkedIn Profile</a>
+              <a href="${linkedin}" target="_blank" style="background: linear-gradient(135deg, #A9A9A9 0%, #FFFF00 100%); color: #0a0a0a; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">LinkedIn Profile</a>
             </div>
           </div>
         </div>
@@ -96,11 +96,11 @@
       const icon = entry.getIn(['data', 'icon']);
       
       return `
-        <div style="background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); padding: 2.5rem; border-radius: 20px; color: white; text-align: center; max-width: 350px; border: 1px solid #333;">
+        <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2.5rem; border-radius: 20px; color: white; text-align: center; max-width: 350px; border: 1px solid #333;">
           <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">${icon}</div>
           <h3 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 1.4rem;">${title}</h3>
-          <p style="color: #888; line-height: 1.7; margin-bottom: 2rem;">${shortDescription}</p>
-          <button style="background: transparent; border: 2px solid #c0c0c0; color: #c0c0c0; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer;">Learn More</button>
+          <p style="color: #808080; line-height: 1.7; margin-bottom: 2rem;">${shortDescription}</p>
+          <button style="background: transparent; border: 2px solid #A9A9A9; color: #A9A9A9; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer;">Learn More</button>
         </div>
       `;
     });
