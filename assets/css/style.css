@@ -101,7 +101,7 @@ main {
 }
 
 .navbar-brand img {
-  height: 150px !important; /* 2.5x of original 60px */
+  height: 120px !important; /* 2.5x of original 60px */
   transition: all 0.3s ease; /* Smooth transition for hover effects */
   margin-right: 2rem; /* Space between logo and text */
   margin-top: -45px; /* Overflow top */
