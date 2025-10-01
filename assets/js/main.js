@@ -155,29 +155,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Enhanced navbar effects
+    // Enhanced navbar effects with scroll shrinking
     function initNavbarEffects() {
+        const siteHeader = document.querySelector('.site-header');
         const navbar = document.querySelector('.navbar');
         let lastScrollY = window.scrollY;
-        
+
         window.addEventListener('scroll', function() {
             const currentScrollY = window.scrollY;
-            
+
+            // Apply shrinking effect when scrolled down
             if (currentScrollY > 100) {
+                siteHeader.classList.add('scrolled');
                 navbar.style.background = 'rgba(10, 10, 10, 0.98)';
                 navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
             } else {
+                siteHeader.classList.remove('scrolled');
                 navbar.style.background = 'rgba(10, 10, 10, 0.95)';
                 navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
             }
-            
-            // Hide/show navbar on scroll
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
-            
+
             lastScrollY = currentScrollY;
         });
     }
