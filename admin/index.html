@@ -6,6 +6,7 @@
   <title>Content Manager - ignasia Consulting</title>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@2.10.176/dist/cms.css" />
   <style>
     body {
       font-family: 'Work Sans', Helvetica, sans-serif;
@@ -51,12 +52,25 @@
   </div>
   
   <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  
+  <script src="https://unpkg.com/netlify-cms@2.10.176/dist/netlify-cms.js"></script>
+
   <script>
+    // Initialize Netlify Identity
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+
     // Custom styling for Netlify CMS
-    CMS.registerPreviewStyle('/assets/css/style.css');
-    
+    if (window.CMS) {
+      CMS.registerPreviewStyle('/assets/css/style.css');
+    }
+
     // Hide loading screen once CMS loads
     window.addEventListener('load', function() {
       setTimeout(() => {
@@ -66,7 +80,8 @@
     });
     
     // Custom preview templates
-    CMS.registerPreviewTemplate('team', ({ entry, widgetFor, widgetsFor }) => {
+    if (window.CMS && window.CMS.registerPreviewTemplate) {
+      CMS.registerPreviewTemplate('team', ({ entry, widgetFor, widgetsFor }) => {
       const name = entry.getIn(['data', 'name']);
       const role = entry.getIn(['data', 'role']);
       const bio = entry.getIn(['data', 'bio']);
@@ -88,22 +103,23 @@
           </div>
         </div>
       `;
-    });
-    
-    CMS.registerPreviewTemplate('services', ({ entry }) => {
-      const title = entry.getIn(['data', 'title']);
-      const shortDescription = entry.getIn(['data', 'short_description']);
-      const icon = entry.getIn(['data', 'icon']);
-      
-      return `
-        <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2.5rem; border-radius: 20px; color: white; text-align: center; max-width: 350px; border: 1px solid #333;">
-          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">${icon}</div>
-          <h3 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 1.4rem;">${title}</h3>
-          <p style="color: #808080; line-height: 1.7; margin-bottom: 2rem;">${shortDescription}</p>
-          <button style="background: transparent; border: 2px solid #A9A9A9; color: #A9A9A9; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer;">Learn More</button>
-        </div>
-      `;
-    });
+      });
+
+      CMS.registerPreviewTemplate('services', ({ entry }) => {
+        const title = entry.getIn(['data', 'title']);
+        const shortDescription = entry.getIn(['data', 'short_description']);
+        const icon = entry.getIn(['data', 'icon']);
+
+        return `
+          <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2.5rem; border-radius: 20px; color: white; text-align: center; max-width: 350px; border: 1px solid #333;">
+            <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">${icon}</div>
+            <h3 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 1.4rem;">${title}</h3>
+            <p style="color: #808080; line-height: 1.7; margin-bottom: 2rem;">${shortDescription}</p>
+            <button style="background: transparent; border: 2px solid #A9A9A9; color: #A9A9A9; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer;">Learn More</button>
+          </div>
+        `;
+      });
+    }
   </script>
 </body>
 </html>
