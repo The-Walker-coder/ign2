@@ -191,6 +191,7 @@ main {
   display: flex;
   align-items: center; /* Vertically center content */
   overflow: hidden;
+  padding-top: 220px;
 }
 
 .hero-section::before {
@@ -327,7 +328,7 @@ main {
 .page-header {
   background: var(--gradient-primary);
   color: var(--text-primary); /* Text color */
-  padding: 180px 0 100px; /* Top and bottom padding */
+  padding: 220px 0 100px; /* Top and bottom padding */
   text-align: center; /* Center align content */
   position: relative; /* For pseudo-elements */
   overflow: hidden;
@@ -1354,11 +1355,11 @@ section {
   }
 
   .page-header {
-    padding: 200px 0 70px;
+    padding: 240px 0 70px;
   }
 
   .hero-section {
-    padding-top: 200px;
+    padding-top: 240px;
   }
 
   .service-card,
@@ -1435,11 +1436,11 @@ section {
   }
 
   .page-header {
-    padding: 180px 0 60px;
+    padding: 220px 0 60px;
   }
 
   .hero-section {
-    padding-top: 180px;
+    padding-top: 220px;
   }
 
   .btn {
