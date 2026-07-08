@@ -15,7 +15,7 @@ OLD_ROOT = "/home/user/workspace/ign2-old"
 SITE = {
     "name": "ignasia Consulting",
     "tagline": "Audit, Consulting & Business Process Optimisation",
-    "desc": "ignasia Consulting is your global partner in information security, risk management, and organisational transformation. We empower ambitious organisations to navigate uncertainty, defend against cyber threats, and unlock lasting growth.",
+    "desc": "ignasia Consulting is an independent consultancy in information security, risk management, and organisational transformation. We help organisations navigate uncertainty, defend against cyber threats, and turn compliance into lasting advantage.",
     "email": "info@ignasia.in",
     "phone": "+91 8971 21 2227",
     "phone_href": "+918971212227",
@@ -124,7 +124,7 @@ def footer(path_prefix=""):
           <img class="brand-logo" src="{pp}assets/img/logo.png" alt="ignasia Consulting logo">
           <span>ignasia<b>.</b>Consulting</span>
         </a>
-        <p>{SITE['tagline']}. Your global partner in information security, risk management, and organisational transformation.</p>
+        <p>{SITE['tagline']}. An independent partner in information security, risk management, and organisational transformation.</p>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
@@ -300,17 +300,20 @@ def build_home():
     <div class="hero-inner">
       <span class="hero-tag"><span class="dot"></span>Audit &middot; Consulting &middot; Business Process Optimisation</span>
       <h1>Trust, resilience, and impact — <span class="grad">engineered for a changing world.</span></h1>
-      <p>We help ambitious organisations navigate uncertainty, defend against cyber threats, and turn compliance into a competitive advantage — with GRC expertise trusted by regulators worldwide.</p>
+      <p>We help organisations navigate uncertainty, defend against cyber threats, and turn compliance into a competitive advantage — with GRC expertise built on hands-on audit and consulting work.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="services.html">Explore our services {ICONS['arrow']}</a>
         <a class="btn btn-ghost btn-lg" href="contact.html">Get started</a>
       </div>
     </div>
-    <div class="stats reveal">
-      <div class="stat"><div class="num">35<span class="accent">+</span></div><div class="lbl">Years Combined Experience</div></div>
-      <div class="stat"><div class="num">99<span class="accent">%</span></div><div class="lbl">First-Time ISO 27001 Pass Rate</div></div>
-      <div class="stat"><div class="num">70<span class="accent">+</span></div><div class="lbl">Successful Implementations</div></div>
-      <div class="stat"><div class="num">5</div><div class="lbl">Industry Sectors Served</div></div>
+    <div class="hero-trust reveal">
+      <span class="hero-trust-label">Frameworks we work with</span>
+      <span class="fw">ISO 27001</span>
+      <span class="fw">NIST CSF</span>
+      <span class="fw">SOC 2</span>
+      <span class="fw">DPDP Act</span>
+      <span class="fw">GDPR</span>
+      <span class="fw">RSA Archer</span>
     </div>
   </div>
 </section>
@@ -319,15 +322,15 @@ def build_home():
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Why choose ignasia</span>
-      <h2 class="section-title">Boutique agility. <span class="accent">Premier consulting depth.</span></h2>
+      <h2 class="section-title">Boutique agility. <span class="accent">Deep consulting expertise.</span></h2>
       <p class="section-sub">We fuse proven methodologies with tailored, creative thinking — so every engagement feels bespoke, not templated.</p>
     </div>
     <div class="grid grid-3">
       {feature("01","Global experts","Real-world, hands-on experience in cybersecurity, GRC, risk-driven, and operational excellence.","users")}
       {feature("02","Impact-oriented","We deliver measurable business value and strategic resilience — not slide-deck advice.","trend")}
       {feature("03","Tailored solutions","Every engagement designed around your specific needs, sector, and growth stage.","target")}
-      {feature("04","Trusted worldwide","Serving clients from high-growth startups to established enterprises and mission-driven NGOs.","globe")}
-      {feature("05","Recognised credentials","Our certified professionals are trusted by regulators like RBI, IRDAI, SEBI, SEC and FTC.","scale")}
+      {feature("04","Sector-aware","We tailor every engagement to your sector\u2019s regulatory landscape and risk profile, not a one-size-fits-all playbook.","globe")}
+      {feature("05","Recognised credentials","Our team holds industry certifications across audit, security, and privacy — and brings them to bear on every engagement.","scale")}
       {feature("06","Built for scale","Frameworks and automation designed to grow with you, from first audit to enterprise programme.","settings")}
     </div>
   </div>
@@ -601,7 +604,7 @@ def build_team():
 
 <section class="section">
   <div class="container">
-    <p class="section-sub" style="max-width:760px;margin-inline:auto;text-align:center;margin-bottom:var(--s-16);">At ignasia Consulting, our strength lies in our people. Our team combines deep technical expertise, premier consulting experience, and a shared commitment to creating a kinder, more secure digital future. Each member brings verified certifications and proven track records that collectively deliver world-class GRC solutions.</p>
+    <p class="section-sub" style="max-width:760px;margin-inline:auto;text-align:center;margin-bottom:var(--s-16);">At ignasia Consulting, our strength lies in our people. Our team combines deep technical expertise, hands-on consulting experience, and a shared commitment to creating a more secure digital future. Each member brings recognised certifications and a track record of practical GRC delivery.</p>
 
     <div class="founder-card reveal">
       <div class="photo"><img src="assets/img/team-abhishek.jpg" alt="Abhishek Divakar" loading="lazy"></div>
@@ -629,14 +632,7 @@ def build_team():
     </div>
 
     <div class="service-block reveal" style="margin-top:var(--s-12);text-align:center;">
-      <h2 style="justify-content:center;">Our Collective Strength</h2>
-      <div class="stats" style="margin-top:var(--s-8);">
-        <div class="stat"><div class="num">35<span class="accent">+</span></div><div class="lbl">Years Combined Experience</div></div>
-        <div class="stat"><div class="num">99<span class="accent">%</span></div><div class="lbl">First-Time ISO 27001 Pass Rate</div></div>
-        <div class="stat"><div class="num">70<span class="accent">+</span></div><div class="lbl">Successful Implementations</div></div>
-        <div class="stat"><div class="num">5</div><div class="lbl">Industry Sectors Served</div></div>
-      </div>
-      <h4 style="font-size:var(--text-sm);color:var(--text-muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:var(--s-10);margin-bottom:var(--s-6);">Certifications Held</h4>
+      <h2 style="justify-content:center;">Certifications we hold</h2>
       <div class="cert-strip">
         <img src="assets/img/cert-cisa-logo.png" alt="CISA">
         <img src="assets/img/cert-cism-logo.png" alt="CISM">

@@ -344,6 +344,30 @@ input, textarea, select { font: inherit; color: inherit; }
 @media (max-width: 768px) { .hero-bg { opacity: 0.3; } }
 @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); gap: var(--s-6); } }
 
+/* Hero frameworks strip (replaces fabricated stats) */
+.hero-trust {
+  margin-top: clamp(var(--s-10), 5vw, var(--s-14));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+}
+.hero-trust-label {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: var(--s-2);
+}
+.hero-trust .fw {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
 /* ---------- Feature cards (why choose) ---------- */
 .grid { display: grid; gap: clamp(var(--s-4), 2vw, var(--s-6)); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
