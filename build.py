@@ -35,8 +35,8 @@ NAV = [
 
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">'
 
-# SVG logo mark
-LOGO_MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 2v20M3 7l9 5 9-5"/></svg>'
+# SVG logo mark — shield (protection) + node (monitoring) + arc (resilience)
+LOGO_MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5.5v5.5c0 4.8 5.2 8.3 8 9.5 2.8-1.2 8-4.7 8-9.5V5.5z"/><circle cx="12" cy="10" r="1.6"/><path d="M8.5 14.5a5 5 0 0 0 7 0"/></svg>'
 
 ICONS = {
     "shield": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
@@ -74,7 +74,9 @@ def head(title, desc, path_prefix="", extra=""):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="icon" type="image/svg+xml" href="{pp}assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="{pp}assets/img/favicon.png">
+<link rel="apple-touch-icon" href="{pp}assets/img/favicon.png">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
@@ -96,7 +98,7 @@ def header(active, path_prefix=""):
   <div class="container">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="{pp}index.html" aria-label="{SITE['name']} home">
-        <span class="brand-mark">{LOGO_MARK}</span>
+        <img class="brand-logo" src="{pp}assets/img/logo.png" alt="ignasia Consulting logo">
         <span>ignasia<b>.</b>Consulting</span>
       </a>
       <ul class="nav-links" id="navLinks">
@@ -118,7 +120,7 @@ def footer(path_prefix=""):
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="{pp}index.html">
-          <span class="brand-mark">{LOGO_MARK}</span>
+          <img class="brand-logo" src="{pp}assets/img/logo.png" alt="ignasia Consulting logo">
           <span>ignasia<b>.</b>Consulting</span>
         </a>
         <p>{SITE['tagline']}. Your global partner in information security, risk management, and organisational transformation.</p>
@@ -292,11 +294,12 @@ def write_page(filename, title, desc, body, active="", path_prefix=""):
 def build_home():
     body = f"""
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true"><img src="assets/img/hero-mesh.jpg" alt="" loading="eager" decoding="async"></div>
   <div class="container">
     <div class="hero-inner">
       <span class="hero-tag"><span class="dot"></span>Audit &middot; Consulting &middot; Business Process Optimisation</span>
       <h1>Trust, resilience, and impact — <span class="grad">engineered for a changing world.</span></h1>
-      <p>{SITE['desc']} Backed by industry-leading expertise and a passion for making the world a better place.</p>
+      <p>We help ambitious organisations navigate uncertainty, defend against cyber threats, and turn compliance into a competitive advantage — with GRC expertise trusted by regulators worldwide.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="services.html">Explore our services {ICONS['arrow']}</a>
         <a class="btn btn-ghost btn-lg" href="contact.html">Get started</a>
@@ -350,11 +353,14 @@ def build_home():
         <p class="section-sub" style="margin-top:var(--s-5)">At ignasia, we know prosperity means nothing unless shared. That's why we champion causes beyond profit — supporting NGOs, nonprofits, and social innovators with preferential pricing and dedicated support. If your work makes lives better or the world safer, we want to help you succeed.</p>
         <a class="link-arrow" href="contact.html?service=social-impact">Talk to us about your mission {ICONS['arrow']}</a>
       </div>
-      <div class="impact-boxes reveal">
-        {impact_box("gift","Preferred rates","For NGOs and social enterprises")}
-        {impact_box("heart","Pro-bono work","Select mission-aligned assessments")}
-        {impact_box("chart","Impact metrics","Frameworks for social outcomes")}
-        {impact_box("target","Mission strategy","Security aligned to purpose")}
+      <div class="reveal" style="position:relative;">
+        <img src="assets/img/trust-rings.jpg" alt="Layered protective shields and concentric rings representing trust and resilience" style="width:100%;border-radius:var(--r-xl);margin-bottom:var(--s-5);" loading="lazy" decoding="async">
+        <div class="impact-boxes">
+          {impact_box("gift","Preferred rates","For NGOs and social enterprises")}
+          {impact_box("heart","Pro-bono work","Select mission-aligned assessments")}
+          {impact_box("chart","Impact metrics","Frameworks for social outcomes")}
+          {impact_box("target","Mission strategy","Security aligned to purpose")}
+        </div>
       </div>
     </div>
   </div>
@@ -609,9 +615,12 @@ def build_contact():
 
       <div class="form-card reveal">
         <div class="form-success" id="formSuccess">{ICONS['check']} Thank you — your message has been received. We'll respond within one business day.</div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
-          <input type="hidden" name="form-name" value="contact">
-          <p class="sr-only"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <form id="contactForm" action="https://formsubmit.co/info@ignasia.in" method="POST">
+          <input type="hidden" name="_subject" value="New enquiry — ignasia.in website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" id="nextUrl" value="thank-you.html">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="field"><label for="name">Name <span class="req">*</span></label><input type="text" id="name" name="name" required></div>
           <div class="field"><label for="email">Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
           <div class="field"><label for="company">Company</label><input type="text" id="company" name="company"></div>
@@ -641,6 +650,24 @@ def build_contact():
 </section>
 """
     write_page("contact.html", f"Contact Us — {SITE['name']}", "Contact ignasia Consulting for GRC, cybersecurity, and compliance solutions. Email info@ignasia.in or call +91 8971 21 2227.", body, "contact.html")
+
+# ============ THANK YOU ============
+def build_thankyou():
+    body = f"""
+<section class="hero" style="min-height:70vh;display:flex;align-items:center;">
+  <div class="container" style="text-align:center;">
+    <div style="width:72px;height:72px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent);margin:0 auto var(--s-8);">{ICONS['check']}</div>
+    <span class="eyebrow" style="justify-content:center;">Message received</span>
+    <h1 style="font-size:var(--text-2xl);max-width:18ch;margin-inline:auto;">Thank you — we'll be in touch shortly.</h1>
+    <p class="section-sub" style="margin-inline:auto;">Your enquiry has been received. A member of our team will respond within one business day. For urgent matters, reach us directly at <a href="mailto:{SITE['email']}">{SITE['email']}</a> or <a href="tel:{SITE['phone_href']}">{SITE['phone']}</a>.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a class="btn btn-primary btn-lg" href="services.html">Explore our services {ICONS['arrow']}</a>
+      <a class="btn btn-ghost btn-lg" href="index.html">Back to home</a>
+    </div>
+  </div>
+</section>
+"""
+    write_page("thank-you.html", f"Thank you — {SITE['name']}", "Thank you for contacting ignasia Consulting. We will respond within one business day.", body, "")
 
 # ============ BLOG INDEX ============
 def build_blog_index(posts):
@@ -713,7 +740,7 @@ def build_blog_posts(posts):
 
 def main():
     print("Building home, services, about, team, contact...")
-    build_home(); build_services(); build_about(); build_team(); build_contact()
+    build_home(); build_services(); build_about(); build_team(); build_contact(); build_thankyou()
     posts = all_blog_posts()
     # sort: dated posts first (by date desc-ish, keep file order), undated last
     dated = [p for p in posts if p.get('date')]

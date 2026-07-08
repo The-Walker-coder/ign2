@@ -71,35 +71,13 @@
     }
   } catch (e) {}
 
-  // Contact form: Netlify AJAX submit + success message
+  // Contact form: FormSubmit (posts to info@ignasia.in, redirects to thank-you page)
   var form = document.getElementById('contactForm');
   if (form) {
-    var success = document.getElementById('formSuccess');
-    form.addEventListener('submit', function (e) {
-      // If not on Netlify (no backend), show success state and prevent actual navigation
-      var isNetlify = form.getAttribute('data-netlify') === 'true' && window.location.hostname !== 'localhost' && window.location.protocol.startsWith('http');
-      if (!isNetlify) {
-        e.preventDefault();
-        if (success) success.classList.add('show');
-        form.reset();
-        success && success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      // Netlify: submit via fetch to avoid redirect
-      e.preventDefault();
-      var data = new FormData(form);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
-      }).then(function () {
-        if (success) success.classList.add('show');
-        form.reset();
-        success && success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }).catch(function () {
-        // fallback: native submit
-        form.submit();
-      });
-    });
+    // FormSubmit _next needs an absolute URL — set it from current origin
+    var next = document.getElementById('nextUrl');
+    if (next) next.value = window.location.origin + window.location.pathname.replace(/contact\.html.*/, '') + 'thank-you.html';
+    // Allow native form submission to FormSubmit; no JS interception needed.
+    // First-ever submission triggers a one-time confirmation email to info@ignasia.in.
   }
 })();

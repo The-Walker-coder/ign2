@@ -7,7 +7,7 @@ Professional website for ignasia Consulting — an independent GRC, cybersecurit
 - **Static HTML/CSS/JS** — no framework, no build step. Fast, free to host, easy to maintain.
 - **Custom design system** — dark-navy aesthetic with royal-blue accent (`assets/css/style.css`).
 - **Fonts** — Inter (body) + Space Grotesk (display) via Google Fonts.
-- **Contact form** — Netlify Forms (free) — set `data-netlify="true"` on the form (already done).
+- **Contact form** — [FormSubmit](https://formsubmit.co) (free, no account) posting to info@ignasia.in.
 
 ## Structure
 
@@ -17,14 +17,16 @@ Professional website for ignasia Consulting — an independent GRC, cybersecurit
 ├── services.html       # Audit · Consulting · Process Optimisation
 ├── team.html           # Team + certifications
 ├── contact.html        # Contact form + info
+├── thank-you.html      # Form submission confirmation
 ├── blogs.html          # Insights index
 ├── blogs/*.html        # 16 articles
 ├── assets/
 │   ├── css/style.css   # Design system
 │   ├── js/main.js      # Nav, scroll, reveal, form
-│   └── img/            # Logos, team photos, cert badges
+│   └── img/            # Logo, favicon, hero visuals, team photos, cert badges
 ├── build.py            # Generator (rebuilds pages from content)
-├── netlify.toml         # Netlify config (caching, headers)
+├── CNAME                # Custom domain → ignasia.in
+├── .nojekyll            # Serve raw files on GitHub Pages
 ├── sitemap.xml
 └── robots.txt
 ```
@@ -35,32 +37,42 @@ Professional website for ignasia Consulting — an independent GRC, cybersecurit
 python3 build.py
 ```
 
-This regenerates all pages and blog articles from `build.py` + the legacy blog source files.
+This regenerates all pages and blog articles.
 
-## Hosting (free)
+## Hosting — GitHub Pages (free)
 
-### Option A — Netlify (recommended, supports the contact form)
+This repo is configured for GitHub Pages with a custom domain.
 
-1. Push this folder to a GitHub repo.
-2. Netlify → "Add new site" → "Import from Git" → pick the repo.
-3. Build command: *(none — leave blank)*. Publish directory: `.` (root).
-4. The contact form submissions appear under Netlify → "Forms".
+### Setup
 
-### Option B — GitHub Pages
+1. Push this folder to a GitHub repository (e.g. `The-Walker-coder/ign2`).
+2. In the repo: **Settings → Pages → Source: `main` branch, `/` (root)**.
+3. The included `CNAME` file points the site to `ignasia.in`.
+4. The `.nojekyll` file tells GitHub Pages to serve files as-is (no Jekyll processing).
 
-1. Push to GitHub.
-2. Repo Settings → Pages → Source: `main` branch `/` (root).
-3. Note: GitHub Pages has no form backend — the contact form will need Formspree, Getform, or a mailto fallback.
+### Custom domain (ignasia.in via GoDaddy)
 
-### Option C — Cloudflare Pages
+In GoDaddy DNS, add these records:
 
-1. Push to GitHub.
-2. Cloudflare Pages → "Create project" → connect repo.
-3. Build command: *(none)*. Output directory: `.`.
+| Type | Name | Value |
+|------|------|-------|
+| A    | @    | 185.199.108.153 |
+| A    | @    | 185.199.109.153 |
+| A    | @    | 185.199.110.153 |
+| A    | @    | 185.199.111.153 |
+| CNAME | www | `your-username.github.io.` |
 
-## Custom domain
+Then in GitHub: **Settings → Pages → Custom domain → enter `ignasia.in` → Enforce HTTPS**.
 
-Connect `ignasia.in` (or your preferred domain) via the hosting provider's domain settings. SSL is free on all three providers.
+SSL is free and automatic once DNS propagates (may take up to 24h).
+
+### Contact form (FormSubmit)
+
+The contact form posts to `https://formsubmit.co/info@ignasia.in`.
+
+- **First submission:** FormSubmit sends a one-time confirmation email to info@ignasia.in. Click the link to activate.
+- **After activation:** all form submissions arrive in the info@ignasia.in inbox as formatted emails.
+- No account, no cost, no limits.
 
 ---
 
