@@ -78,6 +78,7 @@ def head(title, desc, path_prefix="", extra=""):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
+<script>document.documentElement.classList.add('js');</script>
 {FONTS}
 <link rel="stylesheet" href="{pp}assets/css/style.css">
 {extra}
@@ -263,6 +264,14 @@ def extract_blog_content(path):
     for div in content.find_all("div"):
         if not div.get_text(strip=True) and not div.find(["img","table","ul","ol"]):
             div.decompose()
+
+    # Wrap tables in a scroll container for mobile responsiveness
+    for table in content.find_all("table"):
+        if table.parent.name == "div" and "table-wrap" in (table.parent.get("class") or []):
+            continue
+        wrap = soup.new_tag("div", attrs={"class": "table-wrap"})
+        table.insert_before(wrap)
+        wrap.append(table)
 
     # Convert <br> separated lines in <p> to proper list where appropriate — keep simple
     inner = content.decode_contents()
@@ -539,7 +548,7 @@ def build_team():
         <div class="stat"><div class="num">70<span class="accent">+</span></div><div class="lbl">Successful Implementations</div></div>
         <div class="stat"><div class="num">5</div><div class="lbl">Industry Sectors Served</div></div>
       </div>
-      <h4 style="font-size:var(--text-sm);color:var(--text-faint);letter-spacing:0.12em;text-transform:uppercase;margin-top:var(--s-10);margin-bottom:var(--s-6);">Certifications Held</h4>
+      <h4 style="font-size:var(--text-sm);color:var(--text-muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:var(--s-10);margin-bottom:var(--s-6);">Certifications Held</h4>
       <div class="cert-strip">
         <img src="assets/img/cert-cisa-logo.png" alt="CISA">
         <img src="assets/img/cert-cism-logo.png" alt="CISM">

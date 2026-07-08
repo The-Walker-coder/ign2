@@ -28,8 +28,11 @@
     });
   }
 
-  // Reveal on scroll
+  // Reveal on scroll — progressive enhancement with guaranteed fallback
   var reveals = document.querySelectorAll('.reveal');
+  function revealAll() {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
   if ('IntersectionObserver' in window && reveals.length) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -38,10 +41,21 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
     reveals.forEach(function (el) { io.observe(el); });
+    // Reveal anything already in viewport immediately
+    requestAnimationFrame(function () {
+      reveals.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < (window.innerHeight || 800)) el.classList.add('in');
+      });
+    });
+    // Hard fallback: reveal everything after 2s regardless of observer
+    setTimeout(revealAll, 2000);
+    // Also reveal on full load (covers slow-rendering cases)
+    window.addEventListener('load', function () { setTimeout(revealAll, 300); });
   } else {
-    reveals.forEach(function (el) { el.classList.add('in'); });
+    revealAll();
   }
 
   // Preselect service from ?service= query param

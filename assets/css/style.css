@@ -488,9 +488,9 @@ input, textarea, select { font: inherit; color: inherit; }
 .founder-card .certs-row { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-5); }
 @media (max-width: 800px) { .founder-card { grid-template-columns: 1fr; } .founder-card .photo { aspect-ratio: 16/10; } }
 
-.cert-strip { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-6); justify-content: center; padding: var(--s-8); border: 1px solid var(--border); border-radius: var(--r-xl); background: var(--surface); }
-.cert-strip img { height: 44px; width: auto; opacity: 0.9; filter: brightness(0) invert(1); }
-.cert-strip h4 { width: 100%; text-align: center; font-size: var(--text-sm); color: var(--text-faint); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--s-2); }
+.cert-strip { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-5) var(--s-6); justify-content: center; padding: var(--s-10); border: 1px solid var(--border); border-radius: var(--r-xl); background: linear-gradient(180deg, #f4f5f8, #e9ebf0); }
+.cert-strip img { height: 52px; width: auto; mix-blend-mode: multiply; }
+.cert-strip h4 { width: 100%; text-align: center; font-size: var(--text-sm); color: #5a6378; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--s-4); font-family: var(--font-display); }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--s-6), 4vw, var(--s-12)); }
@@ -564,6 +564,10 @@ input, textarea, select { font: inherit; color: inherit; }
 .article .content table { width: 100%; border-collapse: collapse; margin: var(--s-6) 0; font-size: var(--text-sm); }
 .article .content th, .article .content td { border: 1px solid var(--border-strong); padding: 0.7rem 0.9rem; text-align: left; }
 .article .content th { background: var(--surface-2); color: var(--text); font-weight: 600; }
+/* Responsive table: wrap in scroll container on small screens */
+.article .content .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--s-6) 0; border: 1px solid var(--border-strong); border-radius: var(--r-md); }
+.article .content .table-wrap table { margin: 0; border: none; min-width: 100%; }
+.article .content .table-wrap th, .article .content .table-wrap td { min-width: 6rem; }
 .article .content code { font-family: 'JetBrains Mono', monospace; background: var(--surface-2); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
 .article .content img { border-radius: var(--r-md); margin: var(--s-6) 0; }
 .article-footer { margin-top: var(--s-12); padding-top: var(--s-8); border-top: 1px solid var(--border); }
@@ -586,7 +590,11 @@ input, textarea, select { font: inherit; color: inherit; }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 
-/* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+/* ---------- Reveal animation ----------
+   Progressive enhancement: content visible by default. Only hide when
+   JS is active (html.js) and reveal hasn't triggered yet. Fallback
+   timeout in main.js guarantees visibility. */
+.reveal { transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+html.js .reveal:not(.in) { opacity: 0; transform: translateY(20px); }
+html.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { html.js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
