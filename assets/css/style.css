@@ -399,6 +399,13 @@ input, textarea, select { font: inherit; color: inherit; }
 .service-grid p { color: var(--text-muted); }
 @media (max-width: 800px) { .service-grid { grid-template-columns: 1fr; gap: var(--s-6); } }
 
+/* Bulleted service offering list */
+.svc-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2,1fr); gap: var(--s-4) var(--s-8); }
+.svc-list li { position: relative; padding-left: var(--s-6); color: var(--text-muted); line-height: 1.6; }
+.svc-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.svc-list li strong { color: var(--text); font-weight: 600; }
+@media (max-width: 800px) { .svc-list { grid-template-columns: 1fr; gap: var(--s-4); } }
+
 /* ---------- Social good ---------- */
 .impact { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(var(--s-8), 5vw, var(--s-16)); align-items: center; }
 .impact-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }

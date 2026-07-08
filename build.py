@@ -408,43 +408,43 @@ def build_services():
     <div class="service-block reveal" id="audit">
       <h2><span class="ic">{ICONS['search']}</span> Audit</h2>
       <p class="lead">Independent assurance and certification readiness</p>
-      <div class="service-grid">
-        <div><h4>ISO 27001 Audit & Certification</h4><p>Gap analysis against ISO 27001:2022 requirements, internal audit services and management reviews, pre-certification readiness assessments, external certification support and surveillance, and ISMS documentation review and validation.</p></div>
-        <div><h4>Regulatory Compliance Audits</h4><p>RBI, IRDAI, and SEBI compliance assessments; DPDP Act and GDPR compliance audits; SOC 2 Type I and Type II readiness; third-party vendor security assessments; and privacy impact assessments (PIAs).</p></div>
-        <div><h4>Information Security Audits</h4><p>Comprehensive security posture assessments, vulnerability assessments and penetration testing readiness, cloud security configuration reviews, access control and privilege management audits, and data governance and classification audits.</p></div>
-        <div><h4>Certification Readiness</h4><p>Pre-audit gap remediation, evidence preparation, control implementation tracking, management review facilitation, and ongoing surveillance support to keep your certifications current.</p></div>
-      </div>
+      <ul class="svc-list">
+        <li><strong>ISO 27001 Audit & Certification</strong> — Gap analysis against ISO 27001:2022 requirements, internal audit services and management reviews, pre-certification readiness assessments, external certification support and surveillance, and ISMS documentation review and validation.</li>
+        <li><strong>Regulatory Compliance Audits</strong> — RBI, IRDAI, and SEBI compliance assessments; DPDP Act and GDPR compliance audits; SOC 2 Type I and Type II readiness; third-party vendor security assessments; and privacy impact assessments (PIAs).</li>
+        <li><strong>Information Security Audits</strong> — Comprehensive security posture assessments, vulnerability assessments and penetration testing readiness, cloud security configuration reviews, access control and privilege management audits, and data governance and classification audits.</li>
+        <li><strong>Certification Readiness</strong> — Pre-audit gap remediation, evidence preparation, control implementation tracking, management review facilitation, and ongoing surveillance support to keep your certifications current.</li>
+      </ul>
     </div>
 
     <div class="service-block reveal" id="consulting">
       <h2><span class="ic">{ICONS['briefcase']}</span> Consulting</h2>
       <p class="lead">Strategic advisory and implementation services</p>
-      <div class="service-grid">
-        <div><h4>GRC Strategy & Framework Development</h4><p>Enterprise risk management program design, governance framework implementation, risk appetite and tolerance definition, board-level risk reporting and dashboards, and regulatory horizon scanning and impact analysis.</p></div>
-        <div><h4>Information Security Consulting</h4><p>Security strategy and roadmap development, threat modelling and risk assessment, security architecture design and review, incident response planning and testing, and security awareness program design.</p></div>
-        <div><h4>Data Privacy & Protection Advisory</h4><p>DPDP Act implementation roadmaps, GDPR compliance strategy and gap remediation, privacy by design consulting, cross-border data transfer assessments, and data retention and deletion policy development.</p></div>
-        <div><h4>RSA Archer Platform Advisory</h4><p>Archer platform strategy and roadmap, use case design and optimisation, integration architecture planning, governance model establishment, and ROI optimisation consulting.</p></div>
-      </div>
+      <ul class="svc-list">
+        <li><strong>GRC Strategy & Framework Development</strong> — Enterprise risk management program design, governance framework implementation, risk appetite and tolerance definition, board-level risk reporting and dashboards, and regulatory horizon scanning and impact analysis.</li>
+        <li><strong>Information Security Consulting</strong> — Security strategy and roadmap development, threat modelling and risk assessment, security architecture design and review, incident response planning and testing, and security awareness program design.</li>
+        <li><strong>Data Privacy & Protection Advisory</strong> — DPDP Act implementation roadmaps, GDPR compliance strategy and gap remediation, privacy by design consulting, cross-border data transfer assessments, and data retention and deletion policy development.</li>
+        <li><strong>RSA Archer Platform Advisory</strong> — Archer platform strategy and roadmap, use case design and optimisation, integration architecture planning, governance model establishment, and ROI optimisation consulting.</li>
+      </ul>
     </div>
 
     <div class="service-block reveal" id="optimization">
       <h2><span class="ic">{ICONS['settings']}</span> Business Process Optimisation</h2>
       <p class="lead">Operational excellence and automation</p>
-      <div class="service-grid">
-        <div><h4>RSA Archer Implementation & Optimisation</h4><p>Complete platform deployment and configuration, custom use case development (Risk, Compliance, Audit, TPRM), workflow automation and integration, user training and change management, and ongoing managed services and support.</p></div>
-        <div><h4>GRC Process Automation</h4><p>Risk assessment workflow automation, compliance monitoring and reporting automation, policy management lifecycle optimisation, vendor risk management process streamlining, and risk-driven management workflow implementation.</p></div>
-        <div><h4>Business Continuity & Crisis Management</h4><p>Business impact analysis (BIA) and process mapping, BCP/DRP development and testing, crisis communication framework design, supply chain resilience planning, and tabletop exercises and simulation training.</p></div>
-        <div><h4>Operational Risk Management</h4><p>Process risk identification and mapping, key risk indicator (KRI) development, loss event management frameworks, control effectiveness testing automation, and operational resilience program design.</p></div>
-      </div>
+      <ul class="svc-list">
+        <li><strong>RSA Archer Implementation & Optimisation</strong> — Complete platform deployment and configuration, custom use case development (Risk, Compliance, Audit, TPRM), workflow automation and integration, user training and change management, and ongoing managed services and support.</li>
+        <li><strong>GRC Process Automation</strong> — Risk assessment workflow automation, compliance monitoring and reporting automation, policy management lifecycle optimisation, vendor risk management process streamlining, and risk-driven management workflow implementation.</li>
+        <li><strong>Business Continuity & Crisis Management</strong> — Business impact analysis (BIA) and process mapping, BCP/DRP development and testing, crisis communication framework design, supply chain resilience planning, and tabletop exercises and simulation training.</li>
+        <li><strong>Operational Risk Management</strong> — Process risk identification and mapping, key risk indicator (KRI) development, loss event management frameworks, control effectiveness testing automation, and operational resilience program design.</li>
+      </ul>
     </div>
 
     <div class="service-block reveal" id="specialised">
       <h2><span class="ic">{ICONS['spark']}</span> Specialised Programs</h2>
       <p class="lead">Designed for purpose-driven organisations and self-directed teams</p>
-      <div class="service-grid">
-        <div><h4>For Purpose-Driven Organisations</h4><p>Preferred-rate consulting packages, pro-bono risk assessments for select NGOs, social impact measurement frameworks, and mission-aligned security strategies.</p></div>
-        <div><h4>Self-Assessment Tools</h4><p>A 25-question GRC maturity assessment, ISO 27001 readiness scoring, NIST CSF alignment evaluation, and instant dashboard with recommendations.</p></div>
-      </div>
+      <ul class="svc-list">
+        <li><strong>For Purpose-Driven Organisations</strong> — Preferred-rate consulting packages, pro-bono risk assessments for select NGOs, social impact measurement frameworks, and mission-aligned security strategies.</li>
+        <li><strong>Self-Assessment Tools</strong> — A 25-question GRC maturity assessment, ISO 27001 readiness scoring, NIST CSF alignment evaluation, and instant dashboard with recommendations.</li>
+      </ul>
     </div>
 
     <div class="cta-banner reveal" style="margin-top:var(--s-10)">
