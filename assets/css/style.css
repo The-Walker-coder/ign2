@@ -259,7 +259,7 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .brand { display: inline-flex; align-items: center; gap: var(--s-3); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text); letter-spacing: -0.02em; }
 .brand:hover { color: var(--text); }
-.brand-logo { width: 34px; height: 34px; object-fit: contain; border-radius: 9px; background: #000; flex-shrink: 0; box-shadow: 0 4px 12px -4px rgba(0,0,0,0.6); }
+.brand-logo { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
 .brand span { font-weight: 700; }
 .brand b { color: var(--accent); font-weight: 700; }
 

@@ -28,6 +28,7 @@ NAV = [
     ("index.html", "Home"),
     ("about.html", "About"),
     ("services.html", "Services"),
+    ("social-impact.html", "Impact"),
     ("team.html", "Team"),
     ("blogs.html", "Insights"),
     ("contact.html", "Contact"),
@@ -74,8 +75,8 @@ def head(title, desc, path_prefix="", extra=""):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="icon" type="image/svg+xml" href="{pp}assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="{pp}assets/img/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{pp}assets/img/favicon.png">
 <link rel="apple-touch-icon" href="{pp}assets/img/favicon.png">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
@@ -141,7 +142,7 @@ def footer(path_prefix=""):
           <li><a href="{pp}services.html#audit">Audit</a></li>
           <li><a href="{pp}services.html#consulting">Consulting</a></li>
           <li><a href="{pp}services.html#optimization">Process Optimisation</a></li>
-          <li><a href="{pp}contact.html?service=social-impact">Social Impact</a></li>
+          <li><a href="{pp}social-impact.html">Social Impact</a></li>
         </ul>
       </div>
       <div class="footer-col footer-contact">
@@ -351,7 +352,7 @@ def build_home():
         <span class="eyebrow">Our commitment to social good</span>
         <h2 class="section-title" style="font-size:var(--text-xl)">Building a kinder, <span class="accent">sustainable, better future.</span></h2>
         <p class="section-sub" style="margin-top:var(--s-5)">At ignasia, we know prosperity means nothing unless shared. That's why we champion causes beyond profit — supporting NGOs, nonprofits, and social innovators with preferential pricing and dedicated support. If your work makes lives better or the world safer, we want to help you succeed.</p>
-        <a class="link-arrow" href="contact.html?service=social-impact">Talk to us about your mission {ICONS['arrow']}</a>
+        <a class="link-arrow" href="social-impact.html">Explore our Social Impact Program {ICONS['arrow']}</a>
       </div>
       <div class="reveal" style="position:relative;">
         <img src="assets/img/trust-rings.jpg" alt="Layered protective shields and concentric rings representing trust and resilience" style="width:100%;border-radius:var(--r-xl);margin-bottom:var(--s-5);" loading="lazy" decoding="async">
@@ -505,6 +506,87 @@ def build_about():
 
 def value(ic, title, text):
     return f"""<div class="value-item reveal"><div class="ic">{ICONS[ic]}</div><h4>{title}</h4><p>{text}</p></div>"""
+
+# ============ SOCIAL IMPACT ============
+def build_social_impact():
+    body = f"""
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Social impact</span>
+    <h1>GRC expertise in service of a kinder, better future</h1>
+    <p class="lead">Prosperity means nothing unless shared. We dedicate a portion of our practice to organisations whose work improves lives, strengthens communities, and protects our shared future — with preferential rates, pro-bono engagements, and mission-aligned security strategy.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="impact">
+      <div class="reveal">
+        <span class="eyebrow">Our commitment</span>
+        <h2 class="section-title" style="font-size:var(--text-xl)">Governance and security, <span class="accent">built for purpose.</span></h2>
+        <p class="section-sub" style="margin-top:var(--s-5)">NGOs, nonprofits, and social enterprises operate under the same regulatory and threat landscape as any enterprise — often with fewer resources and higher stakes. ignasia's Social Impact Program brings enterprise-grade governance, risk, and compliance to mission-driven organisations, so the people doing the most good can do it safely, compliantly, and sustainably.</p>
+        <p class="section-sub" style="margin-top:var(--s-4)">Whether you're safeguarding beneficiary data, preparing for a donor-mandated audit, or building resilience into field operations, we partner with you on terms that respect your mission and your budget.</p>
+        <a class="link-arrow" href="contact.html?service=social-impact">Tell us about your mission {ICONS['arrow']}</a>
+      </div>
+      <div class="reveal" style="position:relative;">
+        <img src="assets/img/trust-rings.jpg" alt="Layered protective shields and concentric rings representing trust and resilience" style="width:100%;border-radius:var(--r-xl);margin-bottom:var(--s-5);" loading="lazy" decoding="async">
+        <div class="impact-boxes">
+          {impact_box("gift","Preferred rates","Concessionary pricing for NGOs and social enterprises")}
+          {impact_box("heart","Pro-bono work","Select risk assessments at no cost for qualifying missions")}
+          {impact_box("chart","Impact metrics","Frameworks to measure and report social outcomes")}
+          {impact_box("target","Mission strategy","Security and compliance aligned to your purpose")}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we offer</span>
+      <h2 class="section-title">Enterprise-grade GRC, <span class="accent">scaled to your mission.</span></h2>
+    </div>
+    <div class="grid grid-3">
+      {feature("01","Data protection for beneficiaries","Privacy and data-protection programmes tailored to vulnerable populations — DPDP Act and GDPR alignment, data minimisation, and secure beneficiary records.","lock")}
+      {feature("02","Donor & grant readiness","Audit-ready governance and documentation that meets donor, foundation, and grant-mandate requirements without overwhelming your team.","scale")}
+      {feature("03","ISO 27001 on a budget","Phased, right-sized ISO 27001 adoption — certification readiness and surveillance support scaled to your operations and headcount.","shield")}
+      {feature("04","Resilience for field operations","Business continuity and crisis-response planning for distributed teams, field offices, and low-connectivity environments.","trend")}
+      {feature("05","Impact measurement","Frameworks and metrics that translate your security and governance posture into outcomes donors and boards understand.","chart")}
+      {feature("06","Capacity building","Practical training and enablement so your team owns its controls long after the engagement ends.","users")}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Who we serve</span>
+      <h2 class="section-title">Organisations <span class="accent">driving positive change.</span></h2>
+    </div>
+    <div class="values" style="max-width:960px;margin-inline:auto;">
+      {value("heart","Nonprofits & NGOs","Registered charities, foundations, and grassroots organisations serving communities.")}
+      {value("spark","Social enterprises","Mission-first ventures balancing impact and sustainability.")}
+      {value("globe","Development & aid","Organisations working across borders, regions, and low-connectivity field environments.")}
+      {value("users","Community initiatives","Collectives and volunteer-driven movements protecting people and data.")}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Does your work make lives better or the world safer?</h2>
+      <p>Tell us about your mission. We'll explore how ignasia can support it — with preferred rates, pro-bono capacity, or a tailored engagement that fits your reality.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" href="contact.html?service=social-impact">Tell us about your mission</a>
+        <a class="btn btn-ghost btn-lg" href="services.html">Explore our services</a>
+      </div>
+    </div>
+  </div>
+</section>
+"""
+    write_page("social-impact.html", f"Social Impact — {SITE['name']}", "ignasia Consulting's Social Impact Program: preferential-rate and pro-bono GRC, cybersecurity, and compliance support for NGOs, nonprofits, and social enterprises.", body, "social-impact.html")
 
 # ============ TEAM ============
 def build_team():
@@ -740,7 +822,7 @@ def build_blog_posts(posts):
 
 def main():
     print("Building home, services, about, team, contact...")
-    build_home(); build_services(); build_about(); build_team(); build_contact(); build_thankyou()
+    build_home(); build_services(); build_about(); build_social_impact(); build_team(); build_contact(); build_thankyou()
     posts = all_blog_posts()
     # sort: dated posts first (by date desc-ish, keep file order), undated last
     dated = [p for p in posts if p.get('date')]
