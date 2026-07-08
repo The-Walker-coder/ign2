@@ -615,7 +615,7 @@ def build_contact():
 
       <div class="form-card reveal">
         <div class="form-success" id="formSuccess">{ICONS['check']} Thank you — your message has been received. We'll respond within one business day.</div>
-        <form id="contactForm" action="https://formsubmit.co/info@ignasia.in" method="POST">
+        <form id="contactForm" action="https://formsubmit.co/bca662e93ebfb0bc85743f9d1f1219e5" method="POST">
           <input type="hidden" name="_subject" value="New enquiry — ignasia.in website">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
